@@ -1,0 +1,4 @@
+[submodule "Office_Message_Service"]
+	path = Office_Message_Service
+	url = https://github.com/jamesW1123/Office_Message_Service.git
+	branch = master
