@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.Initialize();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabSend = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
