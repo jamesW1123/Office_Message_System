@@ -15,6 +15,67 @@ namespace MessageServiceClientApp.MService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="User", Namespace="http://schemas.datacontract.org/2004/07/DataComm")]
+    [System.SerializableAttribute()]
+    public partial class User : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Display_NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string User_NameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Display_Name {
+            get {
+                return this.Display_NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Display_NameField, value) != true)) {
+                    this.Display_NameField = value;
+                    this.RaisePropertyChanged("Display_Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string User_Name {
+            get {
+                return this.User_NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.User_NameField, value) != true)) {
+                    this.User_NameField = value;
+                    this.RaisePropertyChanged("User_Name");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Message", Namespace="http://schemas.datacontract.org/2004/07/DataComm")]
     [System.SerializableAttribute()]
     public partial class Message : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -244,6 +305,12 @@ namespace MessageServiceClientApp.MService {
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMessageService/DeleteMessage")]
         System.Threading.Tasks.Task DeleteMessageAsync(int mid);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageService/GetActiveUsers", ReplyAction="http://tempuri.org/IMessageService/GetActiveUsersResponse")]
+        MessageServiceClientApp.MService.User[] GetActiveUsers();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageService/GetActiveUsers", ReplyAction="http://tempuri.org/IMessageService/GetActiveUsersResponse")]
+        System.Threading.Tasks.Task<MessageServiceClientApp.MService.User[]> GetActiveUsersAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageService/GetAllMessages", ReplyAction="http://tempuri.org/IMessageService/GetAllMessagesResponse")]
         MessageServiceClientApp.MService.Message[] GetAllMessages(string id);
         
@@ -297,6 +364,12 @@ namespace MessageServiceClientApp.MService {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMessageService/MarkRead")]
         System.Threading.Tasks.Task MarkReadAsync(int mid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageService/RegisterUser", ReplyAction="http://tempuri.org/IMessageService/RegisterUserResponse")]
+        bool RegisterUser(MessageServiceClientApp.MService.User user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageService/RegisterUser", ReplyAction="http://tempuri.org/IMessageService/RegisterUserResponse")]
+        System.Threading.Tasks.Task<bool> RegisterUserAsync(MessageServiceClientApp.MService.User user);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMessageService/RestoreMessage")]
         void RestoreMessage(int mid);
@@ -352,6 +425,14 @@ namespace MessageServiceClientApp.MService {
         
         public System.Threading.Tasks.Task DeleteMessageAsync(int mid) {
             return base.Channel.DeleteMessageAsync(mid);
+        }
+        
+        public MessageServiceClientApp.MService.User[] GetActiveUsers() {
+            return base.Channel.GetActiveUsers();
+        }
+        
+        public System.Threading.Tasks.Task<MessageServiceClientApp.MService.User[]> GetActiveUsersAsync() {
+            return base.Channel.GetActiveUsersAsync();
         }
         
         public MessageServiceClientApp.MService.Message[] GetAllMessages(string id) {
@@ -424,6 +505,14 @@ namespace MessageServiceClientApp.MService {
         
         public System.Threading.Tasks.Task MarkReadAsync(int mid) {
             return base.Channel.MarkReadAsync(mid);
+        }
+        
+        public bool RegisterUser(MessageServiceClientApp.MService.User user) {
+            return base.Channel.RegisterUser(user);
+        }
+        
+        public System.Threading.Tasks.Task<bool> RegisterUserAsync(MessageServiceClientApp.MService.User user) {
+            return base.Channel.RegisterUserAsync(user);
         }
         
         public void RestoreMessage(int mid) {

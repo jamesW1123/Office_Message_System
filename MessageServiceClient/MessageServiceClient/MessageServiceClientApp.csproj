@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CheckboxItem.cs" />
     <Compile Include="ClientGui.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +61,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Node.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ClientGui.resx">
@@ -86,6 +88,9 @@
     </None>
     <None Include="Connected Services\MService\MessageService.wsdl" />
     <None Include="Connected Services\MService\MessageServiceClientApp.MService.Message.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MService\MessageServiceClientApp.MService.User.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">

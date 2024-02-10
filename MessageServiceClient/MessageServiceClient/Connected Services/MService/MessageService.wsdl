@@ -39,6 +39,12 @@
   <wsdl:message name="IMessageService_DeleteMessage_InputMessage">
     <wsdl:part name="parameters" element="tns:DeleteMessage" />
   </wsdl:message>
+  <wsdl:message name="IMessageService_GetActiveUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetActiveUsers" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetActiveUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetActiveUsersResponse" />
+  </wsdl:message>
   <wsdl:message name="IMessageService_GetAllMessages_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllMessages" />
   </wsdl:message>
@@ -75,6 +81,12 @@
   <wsdl:message name="IMessageService_MarkRead_InputMessage">
     <wsdl:part name="parameters" element="tns:MarkRead" />
   </wsdl:message>
+  <wsdl:message name="IMessageService_RegisterUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterUser" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_RegisterUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterUserResponse" />
+  </wsdl:message>
   <wsdl:message name="IMessageService_RestoreMessage_InputMessage">
     <wsdl:part name="parameters" element="tns:RestoreMessage" />
   </wsdl:message>
@@ -87,6 +99,10 @@
   <wsdl:portType name="IMessageService">
     <wsdl:operation name="DeleteMessage">
       <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/DeleteMessage" message="tns:IMessageService_DeleteMessage_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/GetActiveUsers" message="tns:IMessageService_GetActiveUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/GetActiveUsersResponse" message="tns:IMessageService_GetActiveUsers_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetAllMessages">
       <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/GetAllMessages" message="tns:IMessageService_GetAllMessages_InputMessage" />
@@ -118,6 +134,10 @@
     <wsdl:operation name="MarkRead">
       <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/MarkRead" message="tns:IMessageService_MarkRead_InputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="RegisterUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/RegisterUser" message="tns:IMessageService_RegisterUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/RegisterUserResponse" message="tns:IMessageService_RegisterUser_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="RestoreMessage">
       <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/RestoreMessage" message="tns:IMessageService_RestoreMessage_InputMessage" />
     </wsdl:operation>
@@ -136,6 +156,15 @@
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveUsers">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/GetActiveUsers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetAllMessages">
       <soap12:operation soapAction="http://tempuri.org/IMessageService/GetAllMessages" style="document" />
@@ -199,6 +228,15 @@
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterUser">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/RegisterUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="RestoreMessage">
       <soap12:operation soapAction="http://tempuri.org/IMessageService/RestoreMessage" style="document" />
